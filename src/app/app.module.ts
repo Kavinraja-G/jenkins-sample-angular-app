@@ -1,32 +1,27 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { DataService } from "./data.service";
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 
-import { AppComponent } from './app.component';
-import { TopBarComponent } from './top-bar/top-bar.component';
-import { ProductListComponent } from './product-list/product-list.component';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { HomeComponent } from "./home/home.component";
+import { NavbarComponent } from "./navbar/navbar.component";
+import { TasksComponent } from "./tasks/tasks.component";
+import { MessageComponent } from "./message/message.component";
+import { UpdatetaskComponent } from "./updatetask/updatetask.component";
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    ReactiveFormsModule,
-    RouterModule.forRoot([
-      { path: '', component: ProductListComponent },
-    ])
-  ],
   declarations: [
     AppComponent,
-    TopBarComponent,
-    ProductListComponent
+    HomeComponent,
+    NavbarComponent,
+    TasksComponent,
+    MessageComponent,
+    UpdatetaskComponent
   ],
-  bootstrap: [ AppComponent ]
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  providers: [DataService],
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
+export class AppModule {}
